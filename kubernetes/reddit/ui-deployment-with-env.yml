@@ -2,26 +2,28 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: post
+  name: ui
   labels:
     app: reddit
-    component: post
+    component: ui
 spec:
   replicas: 3
   selector:
     matchLabels:
       app: reddit
-      component: post
+      component: ui
   template:
     metadata:
-      name: post
+      name: ui-pod
       labels:
         app: reddit
-        component: post
+        component: ui
     spec:
       containers:
-      - image: iphizic/post
-        name: post
+      - image: iphizic/ui
+        name: ui
         env:
-        - name: POST_DATABASE_HOST
-          value: post-db
+        - name: ENV
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace

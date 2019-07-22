@@ -4,16 +4,18 @@ kind: Deployment
 metadata:
   name: ui-deployment
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
-      app: ui
+      app: reddit
+      component: ui
   template:
     metadata:
-      name: ui
+      name: ui-pod
       labels:
-        app: ui
+        app: reddit
+        component: ui
     spec:
       containers:
-      - image: iphizic/ui:1.0
+      - image: iphizic/ui
         name: ui
