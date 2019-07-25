@@ -1,0 +1,20 @@
+comment:
+  image:
+    repository: iphizic/comment
+    tag: latest
+  service:
+    externalPort: 9292
+
+post:
+  image:
+    repository: iphizic/post
+    tag: latest
+    service:
+      externalPort: 5000
+
+ui:
+  image:
+    repository: iphizic
+    tag: latest
+    service:
+      externalPort: 9292
